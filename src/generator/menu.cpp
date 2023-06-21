@@ -2,6 +2,8 @@
 #include <iostream>
 #include "./menu.h"
 
+void handleButtonEvents();
+
 Button button("Click me!", {
                                100,
                                100,
@@ -36,7 +38,15 @@ void loadMenu()
 
 void updateMenu()
 {
+    handleButtonEvents();
 
+    button.update();
+    closeButton.update();
+    fullScreen.update();
+}
+
+void handleButtonEvents()
+{
     button.onClick([]()
                    { std::cout << "Button clicked!\n"; });
 
@@ -54,9 +64,4 @@ void updateMenu()
                            {
                                SetWindowSize(800, 800);
                            } });
-
-    // std::cout << "Updating menu...\n";
-    button.update();
-    closeButton.update();
-    fullScreen.update();
 }
