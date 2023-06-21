@@ -2,7 +2,8 @@
 #include <string>
 #include <raylib.h>
 
-#include "./button.h"
+#include "./generator/ux/button.h"
+#include "./generator/menu.h"
 
 #include "generator/core/dom.h"
 
@@ -11,9 +12,9 @@ using namespace std;
 int main(int, char **)
 {
     std::cout << "Hello, from project-c!\n";
-
+    std::cout << GetScreenWidth() << GetScreenHeight();
     const int screenWidth = 800;
-    const int screenHeight = 450;
+    const int screenHeight = 800;
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
@@ -23,17 +24,7 @@ int main(int, char **)
 
     // dom.load("menu.tmpl");
 
-    Button button("Click me!", {
-                                   100,
-                                   100,
-                                   200,
-                                   50,
-                                   BLUE,
-                                   RED,
-                               });
-
-    button.onClick([]()
-                   { std::cout << "Button clicked!" << std::endl; });
+        loadMenu();
 
     while (!WindowShouldClose())
     {
@@ -41,7 +32,7 @@ int main(int, char **)
 
         ClearBackground(RAYWHITE);
 
-        button.update();
+        updateMenu();
 
         // dom.render();
 

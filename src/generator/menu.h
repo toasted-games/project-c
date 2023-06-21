@@ -1,0 +1,2 @@
+void loadMenu();
+void updateMenu();
