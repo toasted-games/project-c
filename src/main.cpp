@@ -18,13 +18,13 @@ int main(int, char **)
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
-    SetTargetFPS(30);
+    SetTargetFPS(GetMonitorRefreshRate(GetCurrentMonitor()));
 
     // DOM dom;
 
     // dom.load("menu.tmpl");
 
-        loadMenu();
+    loadMenu();
 
     while (!WindowShouldClose())
     {
