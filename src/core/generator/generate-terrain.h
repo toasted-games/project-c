@@ -15,8 +15,7 @@ class GenerateTerrain
 private:
     terrainValue terrain[size][size];
     
-
-    terrainValue GetTileValue(int x, int y);
+    void GetTileValue(int x, int y, terrainValue previousValue);
 
 public:
     GenerateTerrain();
