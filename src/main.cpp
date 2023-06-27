@@ -5,5 +5,5 @@ int main(int, char **)
 {
     std::cout << "Hello, from project-c!\n";
 
-    generate_terrain();
+    GenerateTerrain asd;
 }
