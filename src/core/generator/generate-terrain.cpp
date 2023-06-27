@@ -29,15 +29,13 @@ GenerateTerrain::GenerateTerrain()
     }
 }
 
-void GenerateTerrain::GetTileValue(int y, int x, terrainValue previousValue)
+void GenerateTerrain::GetTileValue(int y, int x, int previousValue)
 {
-    std::cout << "x: " << x << " y: " << y << "\n";
-    std::cout << "previousValue: " << previousValue << "\n";
     if (previousValue == -1)
     {
+        std::cout << "previousValue == -1\n";
         terrainValue value = static_cast<terrainValue>(rand() % MOUNTAINS);
         terrain[y][x] = value;
-        std::cout << "value: " << value << " terrain[x][y]: " << terrain[y][x] << "\n";
 
         if (x - 1 >= 0 && terrain[y][x - 1] == -1)
         {
@@ -58,8 +56,20 @@ void GenerateTerrain::GetTileValue(int y, int x, terrainValue previousValue)
     }
     else
     {
-        terrain[y][x] = previousValue;
+        // std::cout << "previousValue != -1\n";
+        int value = previousValue + int(round(sin(rand())));
+        std::cout << "previousValue: " << previousValue << "\tvalue: " << value;
 
+        if (value > MOUNTAINS)
+        {
+            value = MOUNTAINS;
+        }
+        else if (value < WATER)
+        {
+            value = WATER;
+        }
+        terrain[y][x] = static_cast<terrainValue>(value);
+        std::cout << "\tterrain: " << terrain[y][x] << "\n";
         if (x - 1 >= 0 && terrain[y][x - 1] == -1)
         {
             GetTileValue(y, x - 1, terrain[y][x]);

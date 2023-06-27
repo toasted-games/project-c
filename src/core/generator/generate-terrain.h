@@ -8,14 +8,14 @@ enum terrainValue
     MOUNTAINS,
 };
 
-const int size = 10;
+const int size = 100;
 
 class GenerateTerrain
 {
 private:
     terrainValue terrain[size][size];
-    
-    void GetTileValue(int x, int y, terrainValue previousValue);
+
+    void GetTileValue(int x, int y, int previousValue);
 
 public:
     GenerateTerrain();
