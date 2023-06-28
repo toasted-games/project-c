@@ -14,6 +14,8 @@ REM find executable
 for /f "delims=" %%i in ('dir /b /s *.exe') do set executable=%%i
 
 REM run executable
-%executable%
+call %executable%
+
+cd ../../scripts
 
 REM Path: scripts\test.bat
