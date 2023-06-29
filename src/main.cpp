@@ -1,6 +1,20 @@
 #include <iostream>
 
+#include <raylib.h>
+#include "layout/menu/menu.h"
+
 int main(int, char **)
 {
-    std::cout << "Hello, from project-c!\n";
+    InitWindow(800, 600, "Project C");
+
+    Menu menu;
+
+    while (!WindowShouldClose())
+    {
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+
+        menu.update();
+        EndDrawing();
+    }
 }
