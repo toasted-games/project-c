@@ -1,4 +1,5 @@
 #include <iostream>
+
 #include "core/generator/generate-terrain.h"
 #include "core/generator/makeTerrainImage.h"
 
@@ -8,3 +9,4 @@ int main(int, char **)
 
     makeTerrainImage(asd.terrain);
 }
+
