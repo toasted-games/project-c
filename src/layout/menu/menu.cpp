@@ -17,5 +17,6 @@ void Menu::update()
     if (buttonPressed)
     {
         std::cout << "Button pressed!" << std::endl;
+        CloseWindow();
     }
 }

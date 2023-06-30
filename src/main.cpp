@@ -5,7 +5,14 @@
 
 int main(int, char **)
 {
-    InitWindow(800, 600, "Project C");
+    int screenWidth = GetScreenWidth();
+    int screenHeight = GetScreenHeight();
+
+    InitWindow(screenWidth, screenHeight, "Project C");
+
+    SetWindowState(FLAG_WINDOW_UNDECORATED);
+
+    SetExitKey(KEY_NULL);
 
     Menu menu;
 
