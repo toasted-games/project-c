@@ -1,10 +1,6 @@
 #include <iostream>
 #include <string>
 #include <raylib.h>
-
-#include "./generator/ux/button.h"
-#include "./generator/menu.h"
-
 #include "generator/core/dom.h"
 
 using namespace std;
@@ -24,15 +20,11 @@ int main(int, char **)
 
     // dom.load("menu.tmpl");
 
-    loadMenu();
-
     while (!WindowShouldClose())
     {
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
-
-        updateMenu();
 
         // dom.render();
 
