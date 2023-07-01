@@ -24,4 +24,6 @@ int main(int, char **)
         menu.update();
         EndDrawing();
     }
+
+    return 0;
 }
