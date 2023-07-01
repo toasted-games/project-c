@@ -114,9 +114,9 @@ void Menu::renderButtons(Rectangle container)
     GuiSetStyle(DEFAULT, TEXT_SIZE, 20);
 
     float secondButtonY = multiplayerButtonY + mainButtonHeight + mainButtonMargin;
-    float settingsButtonX = mainButtonX + secondButtonWidth + secondButtonMargin;
-    bool buttonExit = GuiButton({mainButtonX, secondButtonY, secondButtonWidth, secondButtonHeight}, "Exit");
-    bool buttonSettings = GuiButton({settingsButtonX, secondButtonY, secondButtonWidth, secondButtonHeight}, "Settings");
+    float exitButtonX = mainButtonX + secondButtonWidth + secondButtonMargin;
+    bool buttonSettings = GuiButton({mainButtonX, secondButtonY, secondButtonWidth, secondButtonHeight}, "Settings");
+    bool buttonExit = GuiButton({exitButtonX, secondButtonY, secondButtonWidth, secondButtonHeight}, "Exit");
 
     if (buttonExit)
     {
