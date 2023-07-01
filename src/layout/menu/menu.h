@@ -7,6 +7,8 @@
 enum MenuState
 {
     MAIN,
+    PLAY,
+    MULTIPLAYER,
     SETTINGS,
     GAME
 };

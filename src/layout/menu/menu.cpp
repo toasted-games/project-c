@@ -118,6 +118,16 @@ void Menu::renderButtons(Rectangle container)
     bool buttonSettings = GuiButton({mainButtonX, secondButtonY, secondButtonWidth, secondButtonHeight}, "Settings");
     bool buttonExit = GuiButton({exitButtonX, secondButtonY, secondButtonWidth, secondButtonHeight}, "Exit");
 
+    if (buttonPlay)
+    {
+        this->state = MenuState::PLAY;
+    }
+
+    if (buttonMultiplayer)
+    {
+        this->state = MenuState::MULTIPLAYER;
+    }
+
     if (buttonExit)
     {
         CloseWindow();
