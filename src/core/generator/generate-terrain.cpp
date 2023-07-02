@@ -12,8 +12,8 @@ GenerateTerrain::GenerateTerrain()
 
     memset(terrain, -1, sizeof(terrain));
 
-    int randomStartX = rand() % size;
-    int randomStartY = rand() % size;
+    int randomStartX = 0; // rand() % size;
+    int randomStartY = 0; // rand() % size;
 
     std::cout << "randomStartX: " << randomStartX << " randomStartY: " << randomStartY << "\n";
 
@@ -33,32 +33,60 @@ void GenerateTerrain::GetTileValue(int y, int x, int previousValue)
 {
     if (previousValue == -1)
     {
-        std::cout << "previousValue == -1\n";
+        std::cout << "previousValue: " << previousValue << std::endl;
         terrainValue value = static_cast<terrainValue>(rand() % MOUNTAINS);
         terrain[y][x] = value;
-
-        if (x - 1 >= 0 && terrain[y][x - 1] == -1)
-        {
-            GetTileValue(y, x - 1, terrain[y][x]);
-        }
-        if (x + 1 < size && terrain[y][x + 1] == -1)
-        {
-            GetTileValue(y, x + 1, terrain[y][x]);
-        }
-        if (y - 1 >= 0 && terrain[y - 1][x] == -1)
-        {
-            GetTileValue(y - 1, x, terrain[y][x]);
-        }
-        if (y + 1 < size && terrain[y + 1][x] == -1)
-        {
-            GetTileValue(y + 1, x, terrain[y][x]);
-        }
     }
     else
     {
-        // std::cout << "previousValue != -1\n";
+        int around[] = {-1, -1, -1, -1};
+
+        if (y - 1 > 0)
+        {
+            around[0] = terrain[y - 1][x];
+        }
+        if (y + 1 < size)
+        {
+            around[1] = terrain[y + 1][x];
+        }
+        if (x - 1 > 0)
+        {
+            around[2] = terrain[y][x - 1];
+        }
+        if (x + 1 < size)
+        {
+            around[3] = terrain[y][x + 1];
+        }
+
+        int max = around[0], min = around[0];
+        for (int i = 0; i < 4; i++)
+        {
+            if (around[i] != -1)
+            {
+                if (around[i] < min)
+                {
+                    min = i;
+                }
+                if (around[i] > max)
+                {
+                    max = i;
+                }
+            }
+        }
+
         int value = previousValue + int(round(sin(rand())));
-        // std::cout << "previousValue: " << previousValue << "\tvalue: " << value;
+
+        // std::cout << "max: " << max << " min: " << min << " value: " << value << std::endl;
+        if (max != -1 && min != -1 && max - min >= 2)
+        {
+            value = round((max - min) / 2);
+        }
+
+        // int diffrentMax = abs(max - value);
+        // int diffrentMin = abs(min - value);
+
+        // std::cout << std::endl
+        //           << "diffrentMax: " << diffrentMax << " diffrentMin: " << diffrentMin << std::endl;
 
         if (value > MOUNTAINS)
         {
@@ -68,23 +96,32 @@ void GenerateTerrain::GetTileValue(int y, int x, int previousValue)
         {
             value = WATER;
         }
+
+        // std::cout << "max: " << max << " min: " << min << " value: " << value << " previous: " << previousValue << std::endl;
+
         terrain[y][x] = static_cast<terrainValue>(value);
-        // std::cout << "\tterrain: " << terrain[y][x] << "\n";
-        if (x - 1 >= 0 && terrain[y][x - 1] == -1)
-        {
-            GetTileValue(y, x - 1, terrain[y][x]);
-        }
-        if (x + 1 < size && terrain[y][x + 1] == -1)
-        {
-            GetTileValue(y, x + 1, terrain[y][x]);
-        }
-        if (y - 1 >= 0 && terrain[y - 1][x] == -1)
-        {
-            GetTileValue(y - 1, x, terrain[y][x]);
-        }
-        if (y + 1 < size && terrain[y + 1][x] == -1)
-        {
-            GetTileValue(y + 1, x, terrain[y][x]);
-        }
     }
+
+    if (x - 1 >= 0 && terrain[y][x - 1] == -1)
+    {
+        // std::cout << "left\n";
+        GetTileValue(y, x - 1, terrain[y][x]);
+    }
+    if (x + 1 < size && terrain[y][x + 1] == -1)
+    {
+        // std::cout << "right\n";
+        GetTileValue(y, x + 1, terrain[y][x]);
+    }
+    if (y - 1 >= 0 && terrain[y - 1][x] == -1)
+    {
+        // std::cout << "up\n";
+        GetTileValue(y - 1, x, terrain[y][x]);
+    }
+    if (y + 1 < size && terrain[y + 1][x] == -1)
+    {
+        // std::cout << "down\n";
+        GetTileValue(y + 1, x, terrain[y][x]);
+    }
+
+    return;
 }

@@ -9,7 +9,7 @@ void makeTerrainImage(terrainValue terrain[size][size])
     FILE *imageFile;
 
     FILE *file;
-    errno_t err = fopen_s(&file, "image.png", "wb");
+    errno_t err = fopen_s(&file, "image.ppm", "wb");
     if (err != 0)
     {
         perror("ERROR: Cannot open output file");

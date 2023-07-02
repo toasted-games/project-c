@@ -11,7 +11,7 @@ enum terrainValue
     MOUNTAINS = 4,
 };
 
-const int size = 100;
+const int size = 300;
 
 class GenerateTerrain
 {
