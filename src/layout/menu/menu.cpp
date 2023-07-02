@@ -6,6 +6,15 @@
 Menu::Menu()
 {
     this->state = MenuState::MAIN;
+
+    this->screenWidth = static_cast<float>(GetScreenWidth());
+    this->screenHeight = static_cast<float>(GetScreenHeight());
+
+    this->background = LoadImage("assets/background.png");
+    ImageResize(&background, static_cast<int>(screenWidth), static_cast<int>(screenHeight));
+    this->backgroundTexture = LoadTextureFromImage(background);
+
+    this->backgroundBlur = LoadShader(0, "assets/backgroundBlur.fs");
 }
 
 void Menu::update()
@@ -67,7 +76,16 @@ void Menu::renderMain()
 {
     Rectangle menuWrapper = this->getMenuWrapper();
 
-    GuiDrawRectangle(menuWrapper, 0, BLACK, GRAY);
+    DrawTexture(backgroundTexture, 0, 0, WHITE);
+
+    // Create a blur effect on the background behind the menu wrapper
+    BeginShaderMode(backgroundBlur);
+
+    DrawTextureRec(backgroundTexture, menuWrapper, {menuWrapper.x, menuWrapper.y}, WHITE);
+
+    EndShaderMode();
+
+    GuiDrawRectangle(menuWrapper, 0, BLACK, {128, 128, 128, 48});
 
     GuiSetStyle(DEFAULT, TEXT_SIZE, 64);
     GuiDrawText("Project C", {menuWrapper.x + 10, menuWrapper.y + 300, menuWrapper.width - 20, 50}, TEXT_ALIGN_CENTER, BLACK);

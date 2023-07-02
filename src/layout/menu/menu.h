@@ -28,6 +28,12 @@ private:
     float screenWidth;
     float screenHeight;
 
+    Image background;
+    Texture2D backgroundTexture;
+
+    Shader backgroundBlur;
+    
+
     Rectangle getMenuWrapper();
     void renderButtons(Rectangle container);
 };

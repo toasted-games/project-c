@@ -11,10 +11,13 @@ int main(int, char **)
     InitWindow(screenWidth, screenHeight, "Project C");
 
     SetWindowState(FLAG_WINDOW_UNDECORATED);
+    SetConfigFlags(FLAG_MSAA_4X_HINT);
 
     SetExitKey(KEY_NULL);
 
     Menu menu;
+
+    SetTargetFPS(GetMonitorRefreshRate(GetCurrentMonitor()));
 
     while (!WindowShouldClose())
     {
