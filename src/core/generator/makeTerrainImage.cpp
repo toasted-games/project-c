@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cstdlib>
 #include "makeTerrainImage.h"
-#include "generate-terrain.h"
+#include "generateTerrain.h"
 
 void makeTerrainImage(terrainValue terrain[size][size])
 {

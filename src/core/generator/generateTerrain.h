@@ -17,7 +17,7 @@ const int size = 256;
 class GenerateTerrain
 {
 private:
-    void GetTileValue(int x, int y, int previousValue);
+    terrainValue GetTileValue(int x, int y);
 
 public:
     terrainValue terrain[size][size];
