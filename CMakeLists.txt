@@ -18,7 +18,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib)
 
 # Add source files
-file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp")
+file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_LIST_DIR}/src/*.cpp" "${CMAKE_CURRENT_LIST_DIR}/src/*.hpp")
 set(INCLUDES "${CMAKE_CURRENT_LIST_DIR}/include/")
 
 # Declare executable
