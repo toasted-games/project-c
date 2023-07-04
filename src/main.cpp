@@ -3,8 +3,8 @@
 #include <iostream>
 #include <raylib.h>
 
-#include "core/generator/generateTerrain.hpp"
-#include "core/generator/makeTerrainImage.hpp"
+#include "core/generator/generateTerrain.h"
+#include "core/generator/makeTerrainImage.h"
 
 int main(int, char **)
 {

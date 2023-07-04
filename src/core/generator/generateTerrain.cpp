@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
-#include "generateTerrain.hpp"
-#include "noiseFunctions/perlinNoise.hpp"
+#include "generateTerrain.h"
+#include "noiseFunctions/perlinNoise.h"
 
 GenerateTerrain::GenerateTerrain()
 {
