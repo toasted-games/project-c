@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
-#include "makeTerrainImage.h"
-#include "generateTerrain.h"
+#include "makeTerrainImage.hpp"
+#include "generateTerrain.hpp"
 
 void makeTerrainImage(terrainValue terrain[size][size])
 {
