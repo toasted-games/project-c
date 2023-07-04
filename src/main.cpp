@@ -8,7 +8,7 @@
 
 int main(int, char **)
 {
-    GenerateTerrain asd;
+    GenerateTerrain generatedTerrain;
 
-    makeTerrainImage(asd.terrain);
+    makeTerrainImage(generatedTerrain.terrain);
 }
