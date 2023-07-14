@@ -1,14 +1,25 @@
 #include <iostream>
 #include <math.h>
 #include <iostream>
-#include <raylib.h>
+#include "raylib.h"
 
 #include "core/generator/generateTerrain.h"
+#include "core/generator/generateFoliage.h"
 #include "core/generator/makeTerrainImage.h"
 
 int main(int, char **)
 {
     GenerateTerrain generatedTerrain;
+    GenerateFoliage generatedFoliage;
+
+    // for (int i = 0; i < size; i++)
+    // {
+    //     for (int j = 0; j < size; j++)
+    //     {
+    //         std::cout << generatedFoliage.foliage[i][j] << " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
 
     const int rows = size;
     const int columns = size;
@@ -65,7 +76,7 @@ int main(int, char **)
         EndDrawing();
     }
 
-    // CloseWindow();
+    CloseWindow();
 
-    makeTerrainImage(generatedTerrain.terrain);
+    // makeTerrainImage(generatedTerrain.terrain);
 }
