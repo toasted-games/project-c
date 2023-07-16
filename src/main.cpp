@@ -6,6 +6,7 @@
 #include "core/generator/generateTerrain.h"
 #include "core/generator/generateFoliage.h"
 #include "core/generator/makeTerrainImage.h"
+#include "core/generator/loadImages.h"
 
 int main(int, char **)
 {
@@ -31,6 +32,8 @@ int main(int, char **)
     InitWindow(screenWidth, screenHeight, "Kwadraty zależne od wartości");
 
     SetTargetFPS(60);
+
+    LoadImages loadedImages;
 
     while (!WindowShouldClose())
     {
@@ -72,6 +75,8 @@ int main(int, char **)
                 DrawRectangle(j * squareSize, i * squareSize, squareSize, squareSize, color);
             }
         }
+
+        DrawTexture(loadedImages.bush_64x64, 100, 100, WHITE);
 
         EndDrawing();
     }
