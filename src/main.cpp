@@ -24,12 +24,13 @@ int main(int, char **)
 
     const int rows = size;
     const int columns = size;
-    const int squareSize = 3;
+    const int squareSize = 10;
 
     const int screenWidth = columns * squareSize;
     const int screenHeight = rows * squareSize;
 
-    InitWindow(screenWidth, screenHeight, "Kwadraty zależne od wartości");
+    InitWindow(screenWidth, screenHeight, "Project-C");
+    // InitWindow(400, 400, "Project-C");
 
     SetTargetFPS(60);
 
@@ -47,6 +48,7 @@ int main(int, char **)
             {
                 int value = generatedTerrain.terrain[i][j];
                 Color color;
+                Texture2D texture;
 
                 // Przypisanie koloru w zależności od wartości
                 switch (value)
@@ -56,12 +58,15 @@ int main(int, char **)
                     break;
                 case 1:
                     color = YELLOW;
+                    texture = loadedImages.deadbush_128x128;
                     break;
                 case 2:
                     color = GREEN;
+                    texture = loadedImages.bush_128x128;
                     break;
                 case 3:
                     color = GRAY;
+                    texture = loadedImages.tree_128x128;
                     break;
                 case 4:
                     color = BLACK;
@@ -73,10 +78,18 @@ int main(int, char **)
 
                 // Rysowanie kwadratu o odpowiednim kolorze
                 DrawRectangle(j * squareSize, i * squareSize, squareSize, squareSize, color);
+
+                if (value > 0 && value < 4)
+                {
+                    DrawTexturePro(texture,
+                                   {0.0f, 0.0f, (float)texture.width, (float)texture.height},
+                                   {(float)j * squareSize, (float)i * squareSize, squareSize, squareSize},
+                                   {0.0f, 0.0f},
+                                   0,
+                                   WHITE);
+                }
             }
         }
-
-        DrawTexture(loadedImages.bush_64x64, 100, 100, WHITE);
 
         EndDrawing();
     }

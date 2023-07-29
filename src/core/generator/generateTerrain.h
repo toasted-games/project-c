@@ -12,7 +12,8 @@ enum terrainValue
 };
 
 // const int size = 10;
-const int size = 256;
+const int size = 100;
+// const int size = 256;
 
 class GenerateTerrain
 {
