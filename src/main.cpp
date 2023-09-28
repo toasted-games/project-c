@@ -1,4 +1,10 @@
 #include <iostream>
+#include <math.h>
+#include <iostream>
+#include <raylib.h>
+
+#include "core/generator/generateTerrain.h"
+#include "core/generator/makeTerrainImage.h"
 
 #include <raylib.h>
 #include "layout/menu/menu.h"
@@ -18,7 +24,9 @@ int main(int, char **)
     Menu menu;
 
     SetTargetFPS(GetMonitorRefreshRate(GetCurrentMonitor()));
-
+  
+    GenerateTerrain generatedTerrain;
+ 
     while (!WindowShouldClose())
     {
         BeginDrawing();
@@ -27,6 +35,6 @@ int main(int, char **)
         menu.update();
         EndDrawing();
     }
-
+  
     return 0;
 }
