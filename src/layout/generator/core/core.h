@@ -1,0 +1,4 @@
+#ifndef LAYOUT_GENERATOR_CORE_H
+#define LAYOUT_GENERATOR_CORE_H
+
+#endif

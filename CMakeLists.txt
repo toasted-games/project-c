@@ -27,6 +27,11 @@ target_sources(${PROJECT_NAME} PRIVATE ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDES})
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
 
+add_custom_target(copy_assets COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/assets/ ${CMAKE_CURRENT_BINARY_DIR}/Debug/assets/ DEPENDS ${CMAKE_CURRENT_LIST_DIR}/assets/)
+add_dependencies(${PROJECT_NAME} copy_assets)
+
+add_definitions(-w)
+
 # Add assets
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_CURRENT_LIST_DIR}/assets/")
 
