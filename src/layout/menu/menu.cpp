@@ -85,7 +85,8 @@ void Menu::renderMain()
 
     EndShaderMode();
 
-    GuiDrawRectangle(menuWrapper, 0, BLACK, {128, 128, 128, 48});
+    // GuiDrawRectangle(menuWrapper, 0, BLACK, {128, 128, 128, 48});
+    DrawRectangleRounded(menuWrapper, 0.1f, 0, {128, 128, 128, 128});
 
     GuiSetStyle(DEFAULT, TEXT_SIZE, 64);
     GuiDrawText("Project C", {menuWrapper.x + 10, menuWrapper.y + 300, menuWrapper.width - 20, 50}, TEXT_ALIGN_CENTER, BLACK);
@@ -93,6 +94,7 @@ void Menu::renderMain()
 
     renderButtons(menuWrapper);
 }
+
 
 void Menu::renderSettings()
 {
@@ -105,6 +107,7 @@ void Menu::renderSettings()
         this->state = MenuState::MAIN;
     }
 }
+
 
 void Menu::renderButtons(Rectangle container)
 {

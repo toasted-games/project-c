@@ -32,7 +32,6 @@ private:
     Texture2D backgroundTexture;
 
     Shader backgroundBlur;
-    
 
     Rectangle getMenuWrapper();
     void renderButtons(Rectangle container);
