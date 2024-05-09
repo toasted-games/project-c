@@ -3,6 +3,6 @@
 
 #include "generateTerrain.h"
 
-void makeTerrainImage(terrainValue terrain[size][size]);
+// void makeTerrainImage(terrainValue terrain[size][size]);
 
 #endif // MAKE_TERRAIN_IMAGE_H

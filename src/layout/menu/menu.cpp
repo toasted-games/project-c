@@ -78,12 +78,12 @@ void Menu::renderMain()
 
     DrawTexture(backgroundTexture, 0, 0, WHITE);
 
-    // Create a blur effect on the background behind the menu wrapper
-    BeginShaderMode(backgroundBlur);
+    // // Create a blur effect on the background behind the menu wrapper
+    // BeginShaderMode(backgroundBlur);
 
-    DrawTextureRec(backgroundTexture, menuWrapper, {menuWrapper.x, menuWrapper.y}, WHITE);
+    // DrawTextureRec(backgroundTexture, menuWrapper, {menuWrapper.x, menuWrapper.y}, WHITE);
 
-    EndShaderMode();
+    // EndShaderMode();
 
     // GuiDrawRectangle(menuWrapper, 0, BLACK, {128, 128, 128, 48});
     DrawRectangleRounded(menuWrapper, 0.1f, 0, {128, 128, 128, 128});
