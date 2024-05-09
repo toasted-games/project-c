@@ -4,10 +4,9 @@
             "name": "Win32",
             "includePath": [
                 "${default}",
-                "${workspaceFolder}/include",
+                "${workspaceFolder}/include/**",
                 "${workspaceFolder}/lib",
-                "${workspaceFolder}/src",
-                "${workspaceFolder}/build/_deps/raylib-src/src"
+                "${workspaceFolder}/src"
             ],
             "defines": [
                 "_DEBUG",
@@ -20,6 +19,24 @@
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-msvc-x64",
             "configurationProvider": "ms-vscode.cmake-tools"
+        },
+        {
+            "name": "Mac",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/include/raylib/src",
+                "${workspaceFolder}/lib",
+                "${workspaceFolder}/src"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64"
         }
     ],
     "version": 4
